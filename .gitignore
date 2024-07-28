@@ -1,0 +1,34 @@
+# misc
+.DS_Store
+*.pem
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# build and test directories
+build
+coverage
+.next
+out
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ide
+/.vscode/*
+!/.vscode/extensions.json
+.idea
+
+# auto generated PWA files
+**/public/sw.js
+**/public/sw.js.map
+**/public/workbox-*.js
+**/public/workbox-*.js.map
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
