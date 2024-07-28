@@ -6,6 +6,7 @@ A [Software Emulation](https://en.wikipedia.org/wiki/Emulator) of the [Gameboy M
 
 ## Table Of Contents
 - [The Tech Stack](#the-tech-stack)
+- [Technical References](#technical-references)
 
 ## The Tech Stack
 The libraries and frameworks that make up the tech stack:
@@ -17,3 +18,18 @@ The libraries and frameworks that make up the tech stack:
 - [Typescript](https://www.typescriptlang.org) - A strongly typed programming language.
 - [Pnpm](https://pnpm.io/) - Fast, disk space efficient package manager.
 - [Next JS](https://nextjs.org/) - React framework for the web.
+
+## Technical References
+* [Why You Should Write A Gameboy Emulator](https://www.youtube.com/watch?v=ElwhYW5wjts)
+* [Building a Gameboy From Scratch](https://raphaelstaebler.medium.com/building-a-gameboy-from-scratch-part-1-51d05496783e)
+* [Game Boy: Complete Technical Reference](https://gekkio.fi/files/gb-docs/gbctr.pdf)
+* [DMG-01: How To Emulate a Game Boy](https://rylev.github.io/DMG-01/)
+* [Pan Docs: Game Boy Technical Reference](https://gbdev.io/pandocs/)
+* [Pan Docs: Summary](http://bgb.bircd.org/pandocs.htm)
+* [Pure CSS Gameboy](https://dev.to/baumannzone/pure-css-gameboy-14n3)
+* [Gameboy Emulation in JavaScript](http://imrannazar.com/GameBoy-Emulation-in-JavaScript:-The-CPU)
+* [Gameboy in CSS](https://www.benjaminwalsh.co.uk/blog/game-boy-css/)
+* [Oh Boy! Gameboy Emulator in Rust](https://www.youtube.com/watch?v=B7seNuQncvU)
+* [The Ultimate Gameboy Talk](https://www.youtube.com/watch?v=HyzD8pNlpwI)
+* [Gameboy Opcodes](https://www.pastraiser.com/cpu/gameboy/gameboy_opcodes.html)
+
