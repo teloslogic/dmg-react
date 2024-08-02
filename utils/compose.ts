@@ -3,7 +3,7 @@
  * @param funcs A set of functions
  * @returns Composed function
  */
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 const compose = <T>(...funcs: Function[]) =>
   funcs.reduce(
     (a, b) =>
