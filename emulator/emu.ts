@@ -1,7 +1,7 @@
 /**
  * The runtime context of the game EMU system.
  */
-export type EMUContext = {
+export type EMU = {
   /**
    * Is emulator paused
    */
@@ -11,7 +11,12 @@ export type EMUContext = {
    */
   running: boolean
   /**
-   * EMU timer ticks
+   * EMU processor or timer ticks
    */
   ticks: bigint
+  /**
+   * Main run method of the emulator.
+   * @returns EMU runtime status code.
+   */
+  run: () => number
 }
