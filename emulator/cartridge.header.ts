@@ -1,102 +1,53 @@
-import U8Bit from '@/types/u8.bit'
-import U16Bit from '@/types/u16.bit'
+import U8Bit from '../types/u8.bit'
 
 /**
- * Each cartridge contains a header, located at the address range $0100—$014F.
- * The cartridge header provides the following information about the game
- * itself and the hardware it expects to run on
+ * The memory area at 0x0100 to 0x014F contains the cartridge header.
+ * This area contains information about the program, its entry point,
+ * checksums, information about the used MBC chip, the ROM and
+ * RAM sizes, etc.
+ * Most of the bytes in this area are required to be specified correctly.
  */
 export type CartridgeHeader = {
   /**
-   * After displaying the Nintendo logo, the built-in boot ROM jumps to
-   * the address $0100, which should then jump to the actual main program
-   * in the cartridge. Most commercial games fill this 4-byte area with
-   * a no op instruction followed by a jp $0150.
-   *
-   * Address Range: 0100-0103
+   * This byte contains an 8-bit checksum computed from the cartridge header bytes 0x0134 to 0x014C.
+   * @returns boolean represen the pass or failure of checksum.
    */
-  entryPoint: Uint8Array
+  runCheck: () => boolean
   /**
-   * This area contains a bitmap image that is
-   * displayed when the Game Boy is powered on.
-   *
-   * Address Range: 0104-0133
+   * This byte indicates what kind of hardware is present on the cartridge — most notably its mapper.
+   * @returns The required (or preferred) Memory Bank Controller (MBC) type.
    */
-  nintendoLogo: Uint8Array
+  getCartridgeType: () => U8Bit
   /**
-   * These bytes contain the title of the game in upper case ASCII. If
-   * the title is less than 16 characters long, the remaining bytes should
-   * be padded with $00s.
-   *
-   * Address Range: 0134-0143
+   * This byte specifies whether this version of the game is intended to be sold in Japan or elsewhere.
+   * @returns 0x00 for Japan (and possibly overseas) or 0x01 for overseas only
    */
-  title: string
+  getDestinationCode: () => U8Bit
   /**
-   * This area contains a two-character ASCII “licensee code” indicating the
-   * game’s publisher. It is only meaningful if the Old licensee is
-   * exactly $33 (which is the case for essentially all games made after the
-   * SGB was released); otherwise, the old code must be considered.
-   *
-   * Address Range: 0144–0145
+   * This area contains a bitmap image that is displayed when the Game Boy is powered on.
+   * It must match the following (hexadecimal) dump, otherwise the boot ROM won’t allow
+   * the game to run.
+   * @returns bitmap image.
    */
-  newLicenseeCode: U16Bit
+  getLogo: () => string
   /**
-   * This byte specifies whether the game supports SGB functions. The SGB will
-   * ignore any command packets if this byte is set to a value other
-   * than $03 (typically $00).
-   *
-   * Address Range: 0146
+   * This area contains a two-character ASCII “licensee code” indicating the game’s publisher.
+   * It is only meaningful if the Old licensee is exactly 0x33 (which is the case for essentially
+   * all games made after the SGB was released); otherwise, the old code must be considered.
+   * @returns A two-character ASCII “licensee code” indicating the game’s publisher.
    */
-  sgbFlag: U8Bit
+  getNewLicenseeCode: () => string
   /**
-   * This byte indicates what kind of hardware is present on the cartridge.
-   *
-   * Address Range: 0147
+   * This byte is used in older (pre-SGB) cartridges to specify the game’s publisher. However, the
+   * value 0x33 indicates that the New licensee codes must be considered instead. (The SGB will ignore
+   * any command packets unless this value is 0x33.)
+   * @returns A 8 bit number indicating the game’s publisher.
    */
-  cartridgeType: U8Bit
+  getOldLicenseeCode: () => U8Bit
   /**
-   * This byte indicates how much ROM is present on the cartridge.
-   * In most cases, the ROM size is given by 32 KiB × (1 << value).
-   *
-   * Address Range: 0148
+   * These bytes contain the title of the game in upper case ASCII. If the title is
+   * less than 16 characters long, the remaining bytes should be padded with $00s.
+   * @returns bytes contain the title of the game
    */
-  romSize: U8Bit
-  /**
-   * This byte indicates how much RAM is present on the cartridge, if any.
-   *
-   * Address Range: 0149
-   */
-  ramSize: U8Bit
-  /**
-   * This byte specifies whether this version of the game is intended to
-   * be sold in Japan or elsewhere.
-   *
-   * Address Range: 014A
-   */
-  destinationCode: U8Bit
-  /**
-   * This byte is used in older (pre-SGB) cartridges to specify the game’s publisher.
-   * However, the value $33 indicates that the New licensee codes must be considered
-   * instead. (The SGB will ignore any command packets unless this value is $33.).
-   *
-   * Address Range: 014B
-   */
-  oldLicenseeCode: U8Bit
-  /**
-   * This byte specifies the version number of the game.
-   * It is usually $00.
-   *
-   * Address Range: 014C
-   */
-  maskROMVersionNumber: U8Bit
-  /**
-   * This byte contains an 8-bit checksum computed from the cartridge header
-   * bytes $0134–014C
-   */
-  headerCheckSum: U8Bit
-  /**
-   * These bytes contain a 16-bit (big-endian) checksum simply computed as
-   * the sum of all the bytes of the cartridge ROM (except these two checksum bytes).
-   */
-  globalChecksum: U16Bit
+  getTitle: () => string
 }

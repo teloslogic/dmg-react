@@ -3,7 +3,7 @@ import {describe, expect, it} from 'vitest'
 
 import compose from '../compose'
 
-describe('The compose function', () => {
+describe('The compose utility function', () => {
   it('should compose from right to left', () => {
     const double = (x: number): number => x * 2
     const square = (x: number): number => x * x
