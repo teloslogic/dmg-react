@@ -7,7 +7,7 @@ export type LogoProps = {
 }
 
 const Logo: FC<LogoProps> = ({altext}) => (
-  <div className="absolute left-[5.2%] top-[58.5%] w-[63%]">
+  <div className="absolute left-[5.2%] top-[33%] w-[63%]">
     <Image src="/nintendo.png" alt={altext} width={900} height={900}></Image>
   </div>
 )

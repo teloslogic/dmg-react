@@ -19,6 +19,8 @@ const Standard: FC<StandardProps> = ({children}) => (
         navBarCenter={<NavBarCenter />}
         navBarEnd={
           <NavBarEnd>
+            <button className="btn btn-active btn-ghost">Load Game</button>
+            &nbsp;&nbsp;&nbsp;
             <PowerSwitch />
           </NavBarEnd>
         }

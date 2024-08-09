@@ -11,6 +11,8 @@ import Screen from '@/components/molecules/screen'
 import Light from '@/components/atoms/light'
 import Battery from '@/components/atoms/battery'
 
+import Logo from '@/components/atoms/logo'
+
 import Standard from '@/components/templates/standard'
 
 const Home: FC = () => (
@@ -27,6 +29,7 @@ const Home: FC = () => (
             battery={<Battery>Battery</Battery>}
           />
         }
+        logo={<Logo altext="Nintendo Gameboy Logo" />}
       />
     </div>
   </Standard>
