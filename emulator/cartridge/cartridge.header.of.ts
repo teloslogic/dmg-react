@@ -1,11 +1,10 @@
 import {CartridgeHeader} from './cartridge.header'
-import U8Bit from '../types/u8.bit'
-import U8BitOf from '../types/u8.bit.of'
+import U8Bit from '../../types/u8.bit'
+import U8BitOf from '../../types/u8.bit.of'
 
 // eslint-disable-next-line no-magic-numbers
 export const CartridgeHeaderOf = (value: Uint8Array = new Uint8Array(512)): CartridgeHeader => {
   return {
-    runCheck: (): boolean => false,
     getCartridgeType: (): U8Bit => {
       const CARTRIDGE_TYPE_INDEX = 0x0147
       const cartType = value[CARTRIDGE_TYPE_INDEX]
@@ -38,6 +37,12 @@ export const CartridgeHeaderOf = (value: Uint8Array = new Uint8Array(512)): Cart
 
       return U8BitOf(code)
     },
+    getROMSize: (): U8Bit => {
+      const ROM_SIZE_INDEX = 0x0148
+      const code = value[ROM_SIZE_INDEX]
+
+      return U8BitOf(code)
+    },
     getTitle: (): string => {
       const TITLE_START = 0x0134
       const TITLE_END = 0x0143
@@ -46,6 +51,13 @@ export const CartridgeHeaderOf = (value: Uint8Array = new Uint8Array(512)): Cart
       const cleanedTitle = title.replace(/\u0000/g, '')
 
       return cleanedTitle
+    },
+    runCheck: (): boolean => {
+      const HEADER_CHECKSUM_INDEX = 0x014d
+      const OFFSET = 0xff
+      const code = value[HEADER_CHECKSUM_INDEX]
+
+      return code & OFFSET ? true : false
     }
   }
 }
