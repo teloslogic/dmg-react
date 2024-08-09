@@ -6,7 +6,6 @@ import NavBarCenter from '../molecules/nav.bar.center'
 import NavBarEnd from '../molecules/nav.bar.end'
 
 import PowerSwitch from '../atoms/power.switch'
-import Footer from '../organisms/footer'
 
 export type StandardProps = {
   children?: ReactNode
@@ -26,9 +25,7 @@ const Standard: FC<StandardProps> = ({children}) => (
       />
     </nav>
     <main className="p-5">{children}</main>
-    <footer className="mt-auto">
-      <Footer />
-    </footer>
+    <footer className="mt-auto"></footer>
   </div>
 )
 

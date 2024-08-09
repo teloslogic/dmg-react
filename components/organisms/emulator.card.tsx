@@ -11,8 +11,8 @@ export type EmulatorCardProps = {
 
 const EmulatorCard: FC<EmulatorCardProps> = ({children, screenBorder, logo}) => (
   <div className="card bg-base-300 w-[450px] shadow-xl">
-    <div className="h-96 w-[100%]">{screenBorder}</div>
-    <div className="card-body">
+    <div className="block h-[100px] w-[100%]">{screenBorder}</div>
+    <div className="card-body h-80">
       {logo}
       {children}
     </div>

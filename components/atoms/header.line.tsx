@@ -5,7 +5,7 @@ export type HeaderLineProps = {
 }
 
 const HeaderLine: FC<HeaderLineProps> = ({children}) => (
-  <div className="absolute inline-block top-[1.75%] right-[15%] text-[white] uppercase text-[10px] bg-[#848190]">
+  <div className="absolute inline-block top-[1.75%] right-[15%] text-[white] uppercase text-[11px] px-[1vw] py-[1%] bg-[#848190]">
     {children}
   </div>
 )

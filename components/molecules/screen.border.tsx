@@ -17,7 +17,7 @@ export type ScreenBorderProps = {
 }
 
 const ScreenBorder: FC<ScreenBorderProps> = ({purpleLine, blueLine, headerLine, screen, light, battery}) => (
-  <div className="absolute top-[9%] left-[9%] w-[82%] h-[60%] bg-[#848190] rounded-tl-[5%] rounded-br-[19%] rounded-tr-[5%] rounded-bl-[5%] [box-shadow:inset_0px_0px_0px_3px_rgba(0,_0,_0,_0.06)]">
+  <div className="absolute top-[3%] left-[9%] w-[82%] h-[38%] bg-[#848190] rounded-tl-[5%] rounded-br-[19%] rounded-tr-[5%] rounded-bl-[5%] [box-shadow:inset_0px_0px_0px_3px_rgba(0,_0,_0,_0.06)]">
     {purpleLine}
     {blueLine}
     {headerLine}
