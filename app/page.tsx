@@ -13,6 +13,8 @@ import Battery from '@/components/atoms/battery'
 
 import Logo from '@/components/atoms/logo'
 
+import IOControls from '@/components/molecules/io.controls'
+
 const Home: FC = () => (
   <Standard>
     <div className="flex justify-center items-center">
@@ -28,19 +30,19 @@ const Home: FC = () => (
           />
         }
         logo={<Logo altext="Nintendo Gameboy Logo" />}>
-        <ul>
-          <li>
-            Arrow keys: <kbd className="kbd kdb-sm">▲</kbd>
-            <kbd className="kbd kdb-sm">◀︎</kbd>
-            <kbd className="kbd kdb-sm">▶︎</kbd>
-            <kbd className="kbd kdb-sm">▼</kbd>
-          </li>
-          <li>
-            Select: <kbd className="kbd kdb-sm">Enter</kbd>&nbsp; Start:{' '}
-            <kbd className="kbd kdb-sm">Shift</kbd>&nbsp; B: <kbd className="kbd kdb-sm">B</kbd>&nbsp; A:{' '}
-            <kbd className="kbd kdb-sm">A</kbd>
-          </li>
-        </ul>
+        <IOControls>
+          <p>
+            Vivamus tincidunt, justo nec viverra ullamcorper, leo sem sollicitudin lacus, ut hendrerit enim
+            ligula non enim. Vestibulum ac tellus aliquet, fringilla orci sit amet, viverra metus. Aliquam
+            metus libero, pulvinar id nibh at, ornare vulputate nisl. Praesent vulputate cursus risus, eget
+            malesuada purus suscipit sit amet. Vestibulum iaculis molestie dui, a fermentum nisi aliquam a.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus facilisis velit vitae libero
+            consectetur imperdiet. Maecenas sed turpis justo. Maecenas nec libero pretium est tristique
+            vehicula id consectetur nisl. Integer ac elit vel tortor molestie porttitor.
+          </p>
+        </IOControls>
       </EmulatorCard>
     </div>
   </Standard>

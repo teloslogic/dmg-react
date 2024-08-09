@@ -1,11 +1,11 @@
 import React, {FC} from 'react'
 
-export type ThemeControllerProps = object
+export type PowerSwitchProps = object
 
-const ThemeController: FC<ThemeControllerProps> = () => (
+const PowerSwitch: FC<PowerSwitchProps> = () => (
   <label className="swap swap-rotate">
     {/* this hidden checkbox controls the state */}
-    <input type="checkbox" className="theme-controller" value="synthwave" />
+    <input type="checkbox" className="power-off" value="synthwave" />
 
     {/* sun icon */}
     <svg className="swap-off h-10 w-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -19,4 +19,4 @@ const ThemeController: FC<ThemeControllerProps> = () => (
   </label>
 )
 
-export default ThemeController
+export default PowerSwitch

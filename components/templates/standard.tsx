@@ -5,7 +5,7 @@ import NavBarStart from '../molecules/nav.bar.start'
 import NavBarCenter from '../molecules/nav.bar.center'
 import NavBarEnd from '../molecules/nav.bar.end'
 
-import ThemeController from '../atoms/theme.controller'
+import PowerSwitch from '../atoms/power.switch'
 import Footer from '../organisms/footer'
 
 export type StandardProps = {
@@ -20,7 +20,7 @@ const Standard: FC<StandardProps> = ({children}) => (
         navBarCenter={<NavBarCenter />}
         navBarEnd={
           <NavBarEnd>
-            <ThemeController />
+            <PowerSwitch />
           </NavBarEnd>
         }
       />
