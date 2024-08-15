@@ -6,8 +6,7 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  themes: ['winter', 'night'],
-  darkMode: ['class', '[data-theme="night"]'],
+  themes: ['winter'],
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require('@tailwindcss/typography'), require('daisyui')]
 }

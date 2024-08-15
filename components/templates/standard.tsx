@@ -5,8 +5,7 @@ import NavBarStart from '../molecules/nav.bar.start'
 import NavBarCenter from '../molecules/nav.bar.center'
 import NavBarEnd from '../molecules/nav.bar.end'
 
-import ThemeController from '../atoms/theme.controller'
-import Footer from '../organisms/footer'
+import PowerSwitch from '../atoms/power.switch'
 
 export type StandardProps = {
   children?: ReactNode
@@ -20,15 +19,15 @@ const Standard: FC<StandardProps> = ({children}) => (
         navBarCenter={<NavBarCenter />}
         navBarEnd={
           <NavBarEnd>
-            <ThemeController />
+            <button className="btn btn-active btn-ghost">Load Game ROM</button>
+            &nbsp;&nbsp;&nbsp;
+            <PowerSwitch />
           </NavBarEnd>
         }
       />
     </nav>
     <main className="p-5">{children}</main>
-    <footer className="mt-auto">
-      <Footer />
-    </footer>
+    <footer className="mt-auto"></footer>
   </div>
 )
 

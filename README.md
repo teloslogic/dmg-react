@@ -51,6 +51,8 @@ All commands are run from the `genetic-menu` root project directory:
 
 _NOTE_: Be sure to use [Pnpm CLI](https://pnpm.io/pnpm-cli) and not [Npm CLI](https://docs.npmjs.com/cli/v10) to run these commands.
 
+_NOTE_: How to get IP Address on macBook: `echo "Private IP address:" $(ifconfig $(route -n get default | awk '/interface: / {print $2}') | awk '/inet / {print $2}')`
+
 ## Technical References
 * [Why You Should Write A Gameboy Emulator](https://www.youtube.com/watch?v=ElwhYW5wjts)
 * [Building a Gameboy From Scratch](https://raphaelstaebler.medium.com/building-a-gameboy-from-scratch-part-1-51d05496783e)

@@ -1,4 +1,4 @@
-import U8Bit from '../types/u8.bit'
+import U8Bit from '../../types/u8.bit'
 
 /**
  * The memory area at 0x0100 to 0x014F contains the cartridge header.
@@ -8,11 +8,6 @@ import U8Bit from '../types/u8.bit'
  * Most of the bytes in this area are required to be specified correctly.
  */
 export type CartridgeHeader = {
-  /**
-   * This byte contains an 8-bit checksum computed from the cartridge header bytes 0x0134 to 0x014C.
-   * @returns boolean represen the pass or failure of checksum.
-   */
-  runCheck: () => boolean
   /**
    * This byte indicates what kind of hardware is present on the cartridge — most notably its mapper.
    * @returns The required (or preferred) Memory Bank Controller (MBC) type.
@@ -45,9 +40,19 @@ export type CartridgeHeader = {
    */
   getOldLicenseeCode: () => U8Bit
   /**
+   * This byte indicates how much ROM is present on the cartridge.
+   * @returns An 8 bit number representing cartridge size properties.
+   */
+  getROMSize: () => U8Bit
+  /**
    * These bytes contain the title of the game in upper case ASCII. If the title is
    * less than 16 characters long, the remaining bytes should be padded with $00s.
    * @returns bytes contain the title of the game
    */
   getTitle: () => string
+  /**
+   * This byte contains an 8-bit checksum computed from the cartridge header bytes 0x0134 to 0x014C.
+   * @returns boolean represen the pass or failure of checksum.
+   */
+  runCheck: () => boolean
 }

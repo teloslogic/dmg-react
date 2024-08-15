@@ -5,7 +5,7 @@ export type BatteryProps = {
 }
 
 const Battery: FC<BatteryProps> = ({children}) => (
-  <div className="absolute inline-block top-[44%] left-[2%] text-[white] uppercase text-[8px]">
+  <div className="absolute inline-block top-[44%] left-[2%] text-[white] uppercase text-[11px]">
     {children}
   </div>
 )
