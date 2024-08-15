@@ -1,21 +1,26 @@
 import {CartridgeHeader} from './cartridge.header'
-import U8Bit from '../../types/u8.bit'
-import U8BitOf from '../../types/u8.bit.of'
+import {CartridgeType, CartridgeTypeOf} from './cartridge.type'
+import {NewLicenseeCode, NewLicenseeCodeOf} from './new.licensee.code'
+import {DestinationCode, DestinationCodeOf} from './destination.code'
+import {OldLicenseeCode, OldLicenseeCodeOf} from './old.licensee.code'
+import {ROMSizeProperties, ROMSize, ROMSizeOf} from './rom.size'
 
 // eslint-disable-next-line no-magic-numbers
 export const CartridgeHeaderOf = (value: Uint8Array = new Uint8Array(512)): CartridgeHeader => {
   return {
-    getCartridgeType: (): U8Bit => {
+    getCartridgeType: (): string | undefined => {
       const CARTRIDGE_TYPE_INDEX = 0x0147
-      const cartType = value[CARTRIDGE_TYPE_INDEX]
+      const cartTypeByteVlue = value[CARTRIDGE_TYPE_INDEX]
+      const cartridge: CartridgeType = CartridgeTypeOf()
 
-      return U8BitOf(cartType)
+      return cartridge.getTypeWith(cartTypeByteVlue)
     },
-    getDestinationCode: (): U8Bit => {
+    getDestinationCode: (): string | undefined => {
       const DESTINATION_CODE_INDEX = 0x014a
       const code = value[DESTINATION_CODE_INDEX]
+      const destinationCode: DestinationCode = DestinationCodeOf()
 
-      return U8BitOf(code)
+      return destinationCode.getNameWith(code)
     },
     getLogo: (): string => {
       const LOGO_START = 0x0104
@@ -24,24 +29,27 @@ export const CartridgeHeaderOf = (value: Uint8Array = new Uint8Array(512)): Cart
 
       return logo
     },
-    getNewLicenseeCode: (): string => {
+    getNewLicenseeCode: (): string | undefined => {
       const NEW_LICENSEE_CODE_START = 0x0144
       const NEW_LICENSEE_CODE_END = 0x0145
       const code = new TextDecoder().decode(value.slice(NEW_LICENSEE_CODE_START, NEW_LICENSEE_CODE_END))
+      const licenseeCode: NewLicenseeCode = NewLicenseeCodeOf()
 
-      return code
+      return licenseeCode.getNameWith(code)
     },
-    getOldLicenseeCode: (): U8Bit => {
+    getOldLicenseeCode: (): string | undefined => {
       const OLD_LICENSE_CODE_INDEX = 0x014b
       const code = value[OLD_LICENSE_CODE_INDEX]
+      const licenseeCode: OldLicenseeCode = OldLicenseeCodeOf()
 
-      return U8BitOf(code)
+      return licenseeCode.getNameWith(code)
     },
-    getROMSize: (): U8Bit => {
+    getROMSize: (): ROMSizeProperties | undefined => {
       const ROM_SIZE_INDEX = 0x0148
       const code = value[ROM_SIZE_INDEX]
+      const romSize: ROMSize = ROMSizeOf()
 
-      return U8BitOf(code)
+      return romSize.getPropertiesWith(code)
     },
     getTitle: (): string => {
       const TITLE_START = 0x0134

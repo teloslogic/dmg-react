@@ -10,8 +10,8 @@ describe('The unsigned 8 bit integer type U8Bit', () => {
 
     const u8bit: U8Bit = U8BitOf(BINARY_VALUE)
 
-    expect(u8bit.getAsDecimalValue()).toEqual(RESULT_DECIMAL_VALUE)
-    expect(u8bit.getAsBinaryString()).toEqual('10010011')
+    expect(u8bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
+    expect(`${u8bit}`).toEqual('10010011')
   })
 
   it('should be able to be constructed from a hexidecimal number', () => {
@@ -20,16 +20,16 @@ describe('The unsigned 8 bit integer type U8Bit', () => {
 
     const u8bit: U8Bit = U8BitOf(HEX_VALUE)
 
-    expect(u8bit.getAsDecimalValue()).toEqual(RESULT_DECIMAL_VALUE)
+    expect(u8bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
   })
 
-  it('should not be able to construct a number larger than 255', () => {
-    const DECIMAL_VALUE = 288
+  it('should wrap around with value 256', () => {
+    const DECIMAL_VALUE = 256
     const RESULT_DECIMAL_VALUE = 0
 
     const u8bit: U8Bit = U8BitOf(DECIMAL_VALUE)
 
-    expect(u8bit.getAsDecimalValue()).toEqual(RESULT_DECIMAL_VALUE)
+    expect(u8bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
   })
 
   it('should be able to get its lower nibble value', () => {
