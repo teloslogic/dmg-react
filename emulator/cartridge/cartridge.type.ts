@@ -17,6 +17,22 @@ export const CartridgeTypeOf = (): CartridgeType => {
   cartridgeType[0x0b] = 'MMM01'
   cartridgeType[0x0c] = 'MMM01+RAM'
   cartridgeType[0x0d] = 'MMM01+RAM+BATTERY'
+  cartridgeType[0x0f] = 'MBC3+TIMER+BATTERY'
+  cartridgeType[0x10] = 'MBC3+TIMER+RAM+BATTERY'
+  cartridgeType[0x11] = 'MBC3'
+  cartridgeType[0x12] = 'MBC3+RAM'
+  cartridgeType[0x13] = 'MBC3+RAM+BATTERY'
+  cartridgeType[0x19] = 'MBC5'
+  cartridgeType[0x1a] = 'MBC5+RAM'
+  cartridgeType[0x1c] = 'MBC5+RUMBLE'
+  cartridgeType[0x1d] = 'MBC5+RUMBLE+RAM'
+  cartridgeType[0x1e] = 'MBC5+RUMBLE+RAM+BATTERY'
+  cartridgeType[0x20] = 'MBC6'
+  cartridgeType[0x22] = 'MBC7+SENSOR+RUMBLE+RAM+BATTERY'
+  cartridgeType[0xfc] = 'POCKET CAMERA'
+  cartridgeType[0xfd] = 'BANDAI TAMA5'
+  cartridgeType[0xfe] = 'HuC3'
+  cartridgeType[0xff] = 'HuC1+RAM+BATTERY'
 
   return {
     getTypeWith: (code: number): string | undefined => {

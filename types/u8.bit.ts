@@ -4,23 +4,23 @@
  */
 type U8Bit = {
   /**
-   * Returns contained 8 bit unsigned integer as a string
-   */
-  getAsBinaryString(): string
-  /**
-   * Returns contained 8 bit unsigned integer as a number
-   */
-  getAsDecimalValue(): number
-  /**
    * Return the last 4 bits of the byte value.
    * @returns Unsigned 8 bit integer as a number.
    */
   getLowerNibble: () => number
   /**
+   * Returns contained 8 bit unsigned integer as a number
+   */
+  getNumber(): number
+  /**
    * Return the first 4 bits of the byte value.
    * @returns Unsiged 8 bit integer as a number.
    */
   getUpperNibble: () => number
+  /**
+   * Returns contained 8 bit unsigned integer as a string
+   */
+  toString(): string
 }
 
 export default U8Bit

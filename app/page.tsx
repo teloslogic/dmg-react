@@ -38,7 +38,11 @@ const Home: FC = () => (
             purpleLine={<PurpleLine />}
             blueLine={<BlueLine />}
             headerLine={<HeaderLine>Dot matrix with stereo sound</HeaderLine>}
-            screen={<Screen />}
+            screen={
+              <Screen>
+                <canvas id="dmg-screen" width={160} height={144}></canvas>
+              </Screen>
+            }
             light={<Light />}
             battery={<Battery>Battery</Battery>}
           />

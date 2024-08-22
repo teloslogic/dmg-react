@@ -24,7 +24,7 @@ export type RootLayoutProps = {
 }
 
 const RootLayout: FC<RootLayoutProps> = ({children}) => (
-  <html lang="en" data-theme="winter">
+  <html lang="en">
     <head>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     </head>

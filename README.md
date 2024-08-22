@@ -10,6 +10,9 @@ A [Software Emulation](https://en.wikipedia.org/wiki/Emulator) of the [Gameboy M
 - [Project Setup](#project-setup)
 - [Project Commands](#project-commands)
 
+## Project Management
+The project's [Kanban Board](https://github.com/orgs/teloslogic/projects/8/views/1)
+
 ## The Tech Stack
 The libraries and frameworks that make up the tech stack:
 

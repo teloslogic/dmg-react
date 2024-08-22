@@ -4,8 +4,6 @@ import {CartridgeHeader} from '../cartridge.header'
 import {CartridgeHeaderOf} from '../cartridge.header.of'
 
 import {CartridgeLoader, CartridgeLoaderOf} from '../cartridge.loader'
-import {ROMSize, ROMSizeOf} from '../rom.size'
-import {NewLicenseeCode, NewLicenseeCodeOf} from '../new.licensee.code'
 
 describe('The Cartridge Header', () => {
   let binaryArray: number[] = []
@@ -26,25 +24,23 @@ describe('The Cartridge Header', () => {
   it('should have a working getCartridgeType() method', () => {
     const romHeader: CartridgeHeader = CartridgeHeaderOf(new Uint8Array(binaryArray))
 
-    // eslint-disable-next-line no-magic-numbers
-    expect(romHeader.getCartridgeType().getAsDecimalValue()).toEqual(0)
+    expect(romHeader.getCartridgeType()).toBe('ROM ONLY')
   })
 
   it('should have a working getDestinationCode() method', () => {
     const romHeader: CartridgeHeader = CartridgeHeaderOf(new Uint8Array(binaryArray))
+    const code = romHeader.getDestinationCode()
 
-    // eslint-disable-next-line no-magic-numbers
-    expect(romHeader.getDestinationCode().getAsDecimalValue()).toEqual(0)
+    expect(code).toBe('Japan (and possibly overseas)')
   })
 
   it('should have a working getROMSize() method', () => {
     const romHeader: CartridgeHeader = CartridgeHeaderOf(new Uint8Array(binaryArray))
-    const romsSize: ROMSize = ROMSizeOf()
+    const properties = romHeader.getROMSize()
 
-    const sizeProperties = romsSize.getPropertiesWith(romHeader.getROMSize())
-
+    expect(properties?.size).toBe('32 KB')
     // eslint-disable-next-line no-magic-numbers
-    expect(sizeProperties?.size).toEqual('32 KB')
+    expect(properties?.banks).toBe(2)
   })
 
   it('should have a working runCheck() method', () => {
@@ -57,9 +53,14 @@ describe('The Cartridge Header', () => {
   it('should have working getNewLicenseeCode() method', () => {
     const romHeader: CartridgeHeader = CartridgeHeaderOf(new Uint8Array(binaryArray))
     const code = romHeader.getNewLicenseeCode()
-    const licenseeDecoder: NewLicenseeCode = NewLicenseeCodeOf()
-    const licenseeCode = licenseeDecoder.getNameWith(code)
 
-    expect(licenseeCode).toEqual('None')
+    expect(code).toBe('None')
+  })
+
+  it('should have working getOldicenseeCode() method', () => {
+    const romHeader: CartridgeHeader = CartridgeHeaderOf(new Uint8Array(binaryArray))
+    const code = romHeader.getOldLicenseeCode()
+
+    expect(code).toBe('None')
   })
 })

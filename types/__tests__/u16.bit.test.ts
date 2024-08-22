@@ -10,8 +10,8 @@ describe('The unsigned 16 bit integer type U16Bit', () => {
 
     const u16bit: U16Bit = U16BitOf(BINARY_VALUE)
 
-    expect(u16bit.getAsDecimalValue()).toEqual(RESULT_DECIMAL_VALUE)
-    expect(u16bit.getAsBinaryString()).toEqual('11000100000101')
+    expect(u16bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
+    expect(`${u16bit}`).toEqual('11000100000101')
   })
 
   it('should be able to be constructed from a hexidecimal number', () => {
@@ -20,16 +20,16 @@ describe('The unsigned 16 bit integer type U16Bit', () => {
 
     const u16bit: U16Bit = U16BitOf(HEX_VALUE)
 
-    expect(u16bit.getAsDecimalValue()).toEqual(RESULT_DECIMAL_VALUE)
+    expect(u16bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
   })
 
-  it('should not be able to construct a number larger than 65535', () => {
-    const DECIMAL_VALUE = 70000
+  it('should wrap around with value 65536', () => {
+    const DECIMAL_VALUE = 65536
     const RESULT_DECIMAL_VALUE = 0
 
     const u16bit: U16Bit = U16BitOf(DECIMAL_VALUE)
 
-    expect(u16bit.getAsDecimalValue()).toEqual(RESULT_DECIMAL_VALUE)
+    expect(u16bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
   })
 
   it('should be able to get its least significant byte', () => {
@@ -58,7 +58,7 @@ describe('The unsigned 16 bit integer type U16Bit', () => {
     const u16bit: U16Bit = U16BitOf(HEX_VALUE)
     const resultU16Bit = u16bit.setLeastSignificantByte(VALUE)
 
-    expect(resultU16Bit.getAsDecimalValue()).toEqual(RESULT_DECIMAL_VALUE)
+    expect(resultU16Bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
   })
 
   it('should be able to set its most significant byte', () => {
@@ -69,6 +69,6 @@ describe('The unsigned 16 bit integer type U16Bit', () => {
     const u16bit: U16Bit = U16BitOf(HEX_VALUE)
     const resultU16Bit = u16bit.setMostSignificantByte(VALUE)
 
-    expect(resultU16Bit.getAsDecimalValue()).toEqual(RESULT_DECIMAL_VALUE)
+    expect(resultU16Bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
   })
 })

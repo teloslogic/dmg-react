@@ -4,18 +4,14 @@
  */
 type U16Bit = {
   /**
-   * Returns contained 16 bit unsigned integer as a string
-   */
-  getAsBinaryString(): string
-  /**
-   * Returns contained 16 bit unsigned integer as a number
-   */
-  getAsDecimalValue(): number
-  /**
    * Return the last byte of the two byte value.
    * @returns 8 bit unsigned integer as a number.
    */
   getLeastSignificantByte: () => number
+  /**
+   * Returns contained 16 bit unsigned integer as a number
+   */
+  getNumber(): number
   /**
    * Return the first byte of the two byte value.
    * @returns 8 bit unsigned integer as a number.
@@ -33,6 +29,10 @@ type U16Bit = {
    * @returns 16 bit unsigned integer as U16Bit.
    */
   setMostSignificantByte: (byteValue: number) => U16Bit
+  /**
+   * Returns contained 16 bit unsigned integer as a string
+   */
+  toString(): string
 }
 
 export default U16Bit
