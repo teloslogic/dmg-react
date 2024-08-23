@@ -4,6 +4,11 @@
  */
 type U16Bit = {
   /**
+   * Decrement the existing binary value.
+   * @returns An incremented U16Bit.
+   */
+  decrement: () => U16Bit
+  /**
    * Return the last byte of the two byte value.
    * @returns 8 bit unsigned integer as a number.
    */
@@ -17,6 +22,11 @@ type U16Bit = {
    * @returns 8 bit unsigned integer as a number.
    */
   getMostSignificantByte: () => number
+  /**
+   * Increment the existing binary value.
+   * @returns An incremented U16Bit.
+   */
+  increment: () => U16Bit
   /**
    * Set the last byte of the two byte value.
    * @param byteValue The new two byte value.

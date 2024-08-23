@@ -71,4 +71,14 @@ describe('The unsigned 16 bit integer type U16Bit', () => {
 
     expect(resultU16Bit.getNumber()).toEqual(RESULT_DECIMAL_VALUE)
   })
+
+  it('Should have a working increment() method', () => {
+    const BINARY_VALUE = 0b0000000000000001
+    const RESULT_VALUE = 0b0000000000000011
+
+    const byte: U16Bit = U16BitOf(BINARY_VALUE)
+    const result: U16Bit = byte.increment().increment()
+
+    expect(RESULT_VALUE).toBe(result.getNumber())
+  })
 })

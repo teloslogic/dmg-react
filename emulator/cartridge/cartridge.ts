@@ -2,7 +2,7 @@ import U8Bit from '@/types/u8.bit'
 import U8BitOf from '@/types/u8.bit.of'
 import U16Bit from '@/types/u16.bit'
 
-import {CartridgeLoader, CartridgeLoaderOf} from '../cartridge/cartridge.loader'
+import {CartridgeLoader} from '../cartridge/cartridge.loader'
 
 export type Cartridge = {
   load: (filePath: string) => boolean
@@ -10,9 +10,8 @@ export type Cartridge = {
   write: (address: U16Bit, value: U8Bit) => void
 }
 
-export const CartridgeOf = (): Cartridge => {
+export const CartridgeOf = (cartLoader: CartridgeLoader): Cartridge => {
   let romData: number[] = []
-  const cartLoader: CartridgeLoader = CartridgeLoaderOf()
 
   return {
     load: (filePath): boolean => {

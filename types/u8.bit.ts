@@ -4,6 +4,11 @@
  */
 type U8Bit = {
   /**
+   * Decrement the existing binary value.
+   * @returns An incremented U8Bit.
+   */
+  decrement: () => U8Bit
+  /**
    * Return the last 4 bits of the byte value.
    * @returns Unsigned 8 bit integer as a number.
    */
@@ -17,6 +22,11 @@ type U8Bit = {
    * @returns Unsiged 8 bit integer as a number.
    */
   getUpperNibble: () => number
+  /**
+   * Increment the existing binary value.
+   * @returns An incremented U8Bit.
+   */
+  increment: () => U8Bit
   /**
    * Returns contained 8 bit unsigned integer as a string
    */
