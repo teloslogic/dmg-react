@@ -49,4 +49,14 @@ describe('The unsigned 8 bit integer type U8Bit', () => {
 
     expect(u8bit.getUpperNibble()).toEqual(RESULT_DECIMAL_VALUE)
   })
+
+  it('Should have a working increment() method', () => {
+    const BINARY_VALUE = 0b00000001
+    const RESULT_VALUE = 0b00000011
+
+    const byte: U8Bit = U8BitOf(BINARY_VALUE)
+    const result: U8Bit = byte.increment().increment()
+
+    expect(RESULT_VALUE).toBe(result.getNumber())
+  })
 })

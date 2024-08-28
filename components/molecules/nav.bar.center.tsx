@@ -7,10 +7,10 @@ const NavBarCenter: FC<NavBarCenterProps> = () => (
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li className="text-lg">
-        <Link href="/games">Games</Link>
+        <Link href="/debugger">Debugger</Link>
       </li>
       <li className="text-lg">
-        <Link href="/debugger">Debugger</Link>
+        <Link href="/instructions">Instructions</Link>
       </li>
       <li className="text-lg">
         <Link href="/about">About</Link>

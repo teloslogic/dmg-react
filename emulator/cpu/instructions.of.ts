@@ -2,7 +2,7 @@
 import {AddressingMode, Instruction, InstructionType, RegisterType} from './instructions'
 
 export type Instructions = {
-  getInstruction: (opcode: number) => Instruction | undefined
+  getInstructionWith: (opcode: number) => Instruction
   getInstructionTypeName: (instructionType: InstructionType) => string
 }
 
@@ -17,7 +17,7 @@ export const InstructionsOf = (): Instructions => {
   instructions[0xf3] = {type: InstructionType.IN_DI}
 
   return {
-    getInstruction: (opcode: number): Instruction | undefined => {
+    getInstructionWith: (opcode: number): Instruction => {
       const MAX_INDEX = 0x0100
       let instruction: Instruction
 

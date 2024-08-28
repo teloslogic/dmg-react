@@ -8,6 +8,7 @@ import U16Bit from './u16.bit'
 const U16BitOf = (value: number): U16Bit => {
   const INDEX = 0
   const COUNT = 2
+  const COUNT_VALUE = 1
   const INT_OFFSET = 0xffff
   const SIGNIFICANT_BYTE_OFFSET = 0xff
   const DECIMAL_OFFSET = 8
@@ -17,9 +18,11 @@ const U16BitOf = (value: number): U16Bit => {
   const typedArray = new Uint16Array([value & INT_OFFSET])
 
   return {
+    decrement: (): U16Bit => U16BitOf(typedArray[INDEX] - (COUNT_VALUE & INT_OFFSET)),
     getLeastSignificantByte: (): number => typedArray[INDEX] & SIGNIFICANT_BYTE_OFFSET,
     getNumber: (): number => typedArray[INDEX] & INT_OFFSET,
     getMostSignificantByte: (): number => (typedArray[INDEX] >> DECIMAL_OFFSET) & SIGNIFICANT_BYTE_OFFSET,
+    increment: (): U16Bit => U16BitOf(typedArray[INDEX] + (COUNT_VALUE & INT_OFFSET)),
     setLeastSignificantByte: (x: number) => U16BitOf((typedArray[INDEX] & SET_LEAST_OFFSET) | x),
     setMostSignificantByte: (x: number) =>
       U16BitOf((typedArray[INDEX] & SET_MOST_OFFSET) | (x << DECIMAL_OFFSET)),

@@ -22,10 +22,10 @@ const NavBarStart: FC<NavBarStartProps> = ({brandText}) => (
         tabIndex={1}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li className="text-lg">
-          <Link href="/games">Games</Link>
+          <Link href="/debugger">Debugger</Link>
         </li>
         <li className="text-lg">
-          <Link href="/debugger">Debugger</Link>
+          <Link href="/instructions">Instructions</Link>
         </li>
         <li className="text-lg">
           <Link href="/about">About</Link>
