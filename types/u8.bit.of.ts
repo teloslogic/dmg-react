@@ -16,12 +16,16 @@ const U8BitOf = (value: number): U8Bit => {
   const typedArray = new Uint8Array([value & INT_OFFSET])
 
   return {
+    AND: (x: U8Bit): U8Bit => U8BitOf(typedArray[INDEX] & x.getNumber()),
     decrement: (): U8Bit => U8BitOf(typedArray[INDEX] - (COUNT_VALUE & INT_OFFSET)),
+    equals: (x: U8Bit): boolean => (value === x.getNumber() ? true : false),
     getLowerNibble: (): number => typedArray[INDEX] & NIBBLE_OFFSET & INT_OFFSET,
     getNumber: (): number => typedArray[INDEX] & INT_OFFSET,
     getUpperNibble: (): number => (typedArray[INDEX] >> DECIMAL_OFFSET) & NIBBLE_OFFSET & INT_OFFSET,
     increment: (): U8Bit => U8BitOf(typedArray[INDEX] + (COUNT_VALUE & INT_OFFSET)),
-    toString: (): string => (typedArray[INDEX] >>> INDEX).toString(COUNT)
+    toString: (): string => (typedArray[INDEX] >>> INDEX).toString(COUNT),
+    OR: (x: U8Bit): U8Bit => U8BitOf(typedArray[INDEX] | x.getNumber()),
+    XOR: (x: U8Bit): U8Bit => U8BitOf(typedArray[INDEX] ^ x.getNumber())
   }
 }
 

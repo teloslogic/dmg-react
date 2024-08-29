@@ -4,6 +4,18 @@ import U8Bit from '../u8.bit'
 import U8BitOf from '../u8.bit.of'
 
 describe('The unsigned 8 bit integer type U8Bit', () => {
+  it('Should have a working AND() method', () => {
+    const FIRST_BINARY_VALUE = 0b01111000
+    const SECOND_BINARY_VALUE = 0b00001010
+    const RESULT_VALUE = 0b00001000
+
+    const firstByte: U8Bit = U8BitOf(FIRST_BINARY_VALUE)
+    const secondByte: U8Bit = U8BitOf(SECOND_BINARY_VALUE)
+    const result: U8Bit = firstByte.AND(secondByte)
+
+    expect(RESULT_VALUE).toBe(result.getNumber())
+  })
+
   it('should be able to be constructed from a binary number', () => {
     const BINARY_VALUE = 0b10010011
     const RESULT_DECIMAL_VALUE = 147
@@ -50,7 +62,7 @@ describe('The unsigned 8 bit integer type U8Bit', () => {
     expect(u8bit.getUpperNibble()).toEqual(RESULT_DECIMAL_VALUE)
   })
 
-  it('Should have a working increment() method', () => {
+  it('should have a working increment() method', () => {
     const BINARY_VALUE = 0b00000001
     const RESULT_VALUE = 0b00000011
 
@@ -58,5 +70,37 @@ describe('The unsigned 8 bit integer type U8Bit', () => {
     const result: U8Bit = byte.increment().increment()
 
     expect(RESULT_VALUE).toBe(result.getNumber())
+  })
+
+  it('should have a working OR() method', () => {
+    const FIRST_BINARY_VALUE = 0b01111000
+    const SECOND_BINARY_VALUE = 0b00001010
+    const RESULT_VALUE = 0b01111010
+
+    const firstByte: U8Bit = U8BitOf(FIRST_BINARY_VALUE)
+    const secondByte: U8Bit = U8BitOf(SECOND_BINARY_VALUE)
+    const result: U8Bit = firstByte.OR(secondByte)
+
+    expect(RESULT_VALUE).toBe(result.getNumber())
+  })
+
+  it('should have a working XOR() method', () => {
+    const FIRST_BINARY_VALUE = 0b01111000
+    const SECOND_BINARY_VALUE = 0b00001010
+    const RESULT_VALUE = 0b01110010
+
+    const firstByte: U8Bit = U8BitOf(FIRST_BINARY_VALUE)
+    const secondByte: U8Bit = U8BitOf(SECOND_BINARY_VALUE)
+    const result: U8Bit = firstByte.XOR(secondByte)
+
+    expect(RESULT_VALUE).toBe(result.getNumber())
+  })
+
+  it('should have a working equals() method', () => {
+    const HEX_VALUE = 0xf0
+
+    const result: U8Bit = U8BitOf(HEX_VALUE)
+
+    expect(result.equals(U8BitOf(HEX_VALUE))).toBe(true)
   })
 })

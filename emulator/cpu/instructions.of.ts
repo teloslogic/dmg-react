@@ -32,10 +32,10 @@ export const InstructionsOf = (): Instructions => {
       const types: string[] = []
 
       types[InstructionType.IN_NONE] = 'NONE'
-      types[InstructionType.IN_NOP] = 'NOP'
+      types[InstructionType.IN_NOP] = 'No Operation'
       types[InstructionType.IN_LD] = 'LD'
       types[InstructionType.IN_INC] = 'INC'
-      types[InstructionType.IN_DEC] = 'DEC'
+      types[InstructionType.IN_DEC] = 'Decrement Data In An 8-bit Register'
       types[InstructionType.IN_RLCA] = 'RLCA'
       types[InstructionType.IN_ADD] = 'ADD'
       types[InstructionType.IN_RRCA] = 'RRCA'
@@ -69,6 +69,8 @@ export const InstructionsOf = (): Instructions => {
       types[InstructionType.IN_RST] = 'RST'
       types[InstructionType.IN_ERR] = 'ERR'
       types[InstructionType.IN_RLC] = 'RLC'
+      types[InstructionType.IN_RRC] = 'RRC'
+      types[InstructionType.IN_RL] = 'RL'
 
       return types[instructionType]
     }

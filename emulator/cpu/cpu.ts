@@ -1,3 +1,5 @@
+import U16Bit from '../../types/u16.bit'
+
 /**
  * The CPU core in the Game Boy SoC is a custom Sharp design that hasn’t publicly been given
  * a name by either Sharp or Nintendo. However, using old Sharp datasheets and databooks as
@@ -15,6 +17,7 @@ export type CPU = {
   execute: () => void
   fetchData: () => void
   fetchInstruction: () => void
+  getFetchedData: () => U16Bit
   init: () => void
   step: () => boolean
 }

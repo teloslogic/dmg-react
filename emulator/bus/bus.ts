@@ -6,9 +6,9 @@ import U16Bit from '../../types/u16.bit'
 import {Cartridge} from '../cartridge/cartridge'
 
 // Memory Map:
-// 0x0000 - 0x3FFF : ROM Bank 0
-// 0x4000 - 0x7FFF : ROM Bank 1 - Switchable
-// 0x8000 - 0x97FF : CHR RAM
+// 0x0000 - 0x3FFF : ROM Bank 0 (ROM0) - Non-switchable ROM Bank.
+// 0x4000 - 0x7FFF : ROM Bank 1 (ROMX) - Switchable ROM Bank.
+// 0x8000 - 0x9FFF : CHR RAM (VRAM) - Video RAM, switchable (0-1) in GBC mode.
 // 0x9800 - 0x9BFF : BG Map 1
 // 0x9C00 - 0x9FFF : BG Map 2
 // 0xA000 - 0xBFFF : Cartridge RAM
