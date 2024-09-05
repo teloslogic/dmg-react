@@ -18,15 +18,19 @@ const U16BitOf = (value: number): U16Bit => {
   const typedArray = new Uint16Array([value & INT_OFFSET])
 
   return {
+    AND: (x: U16Bit): U16Bit => U16BitOf(typedArray[INDEX] & x.getNumber()),
     decrement: (): U16Bit => U16BitOf(typedArray[INDEX] - (COUNT_VALUE & INT_OFFSET)),
+    equals: (x: U16Bit): boolean => (value === x.getNumber() ? true : false),
     getLeastSignificantByte: (): number => typedArray[INDEX] & SIGNIFICANT_BYTE_OFFSET,
     getNumber: (): number => typedArray[INDEX] & INT_OFFSET,
     getMostSignificantByte: (): number => (typedArray[INDEX] >> DECIMAL_OFFSET) & SIGNIFICANT_BYTE_OFFSET,
     increment: (): U16Bit => U16BitOf(typedArray[INDEX] + (COUNT_VALUE & INT_OFFSET)),
+    OR: (x: U16Bit): U16Bit => U16BitOf(typedArray[INDEX] | x.getNumber()),
     setLeastSignificantByte: (x: number) => U16BitOf((typedArray[INDEX] & SET_LEAST_OFFSET) | x),
     setMostSignificantByte: (x: number) =>
       U16BitOf((typedArray[INDEX] & SET_MOST_OFFSET) | (x << DECIMAL_OFFSET)),
-    toString: (): string => (typedArray[INDEX] >>> INDEX).toString(COUNT)
+    toString: (): string => (typedArray[INDEX] >>> INDEX).toString(COUNT),
+    XOR: (x: U16Bit): U16Bit => U16BitOf(typedArray[INDEX] ^ x.getNumber())
   }
 }
 

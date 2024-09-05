@@ -42,10 +42,10 @@ const readRegister =
           .setMostSignificantByte(registers.H.getNumber())
           .setLeastSignificantByte(registers.L.getNumber())
 
-      case RegisterType.RT_PC:
-        return registers.PC
       case RegisterType.RT_SP:
         return registers.SP
+      case RegisterType.RT_PC:
+        return registers.PC
 
       default:
         return U16BitOf(0x0000)
