@@ -1,8 +1,0 @@
-# Ignore artifacts:
-assets
-public
-node_modules
-build
-coverage
-.next
-test.roms

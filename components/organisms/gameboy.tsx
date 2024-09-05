@@ -17,7 +17,7 @@ export type GameboyProps = {
 }
 
 const Gameboy: FC<GameboyProps> = ({screenBorder, logo, devicePad, ba, select, start}) => (
-  <div className="bg-[#e8e0da] w-[490px] h-[720px] mx-[auto] rounded-tl-[20px] rounded-br-[150px] rounded-tr-[10px] rounded-bl-[10px] overflow-visible relative">
+  <div className="bg-[#e8e0da] w-[470px] h-[720px] mx-[auto] rounded-tl-[20px] rounded-br-[150px] rounded-tr-[10px] rounded-bl-[10px] overflow-visible relative">
     {screenBorder}
     {logo}
     {devicePad}
