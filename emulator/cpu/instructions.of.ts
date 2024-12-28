@@ -31,7 +31,7 @@ export const InstructionsOf = (): Instructions => {
     getInstructionTypeName: (instructionType: InstructionType): string => {
       const types: string[] = []
 
-      types[InstructionType.IN_NONE] = 'NONE'
+      types[InstructionType.IN_NONE] = 'None'
       types[InstructionType.IN_NOP] = 'No Operation'
       types[InstructionType.IN_LD] = 'LD'
       types[InstructionType.IN_INC] = 'INC'

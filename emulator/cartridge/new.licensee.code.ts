@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 export type NewLicenseeCode = {
   getNameWith: (code: string) => string | undefined
 }

@@ -14,7 +14,7 @@ import U16Bit from '../../types/u16.bit'
 import readRegister from '../../utils/read.register'
 
 export const CPUCOf = (registers: Registers, instructions: Instructions, bus: Bus): CPU => {
-  let currentOpcode: U8Bit
+  let currentOpcode: U8Bit = U8BitOf(0x00)
   let currentInstruction: Instruction = {type: InstructionType.IN_NONE}
   let fetchedData: U16Bit = U16BitOf(0x0000)
 
@@ -31,8 +31,13 @@ export const CPUCOf = (registers: Registers, instructions: Instructions, bus: Bu
     cycles: (cycles: number): void => private_cycles(cycles),
     execute: (): void => {
       const proccesor: () => void = cpuPocessors.getProcessorWith(currentInstruction.type)
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      proccesor ? proccesor() : console.log()
+
+      if (proccesor) {
+        proccesor()
+      } else {
+        const process = instructions.getInstructionWith(currentInstruction.type)
+        console.log(`'${process}' has not been implemented`)
+      }
     },
     fetchData: (): void => {
       if (currentInstruction === undefined) {

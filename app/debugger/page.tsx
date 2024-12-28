@@ -1,7 +1,6 @@
 import React, {FC} from 'react'
 
 import Emulator from '@/components/organisms/emulator'
-
 import Standard from '@/components/templates/standard'
 
 const Debugger: FC = () => (

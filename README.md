@@ -34,7 +34,7 @@ The steps for installing the required frameworks, libraries and tools needed to 
 ## Project Commands
 This project is setup to use [Pnpm CLI](https://pnpm.io/pnpm-cli).
 
-All commands are run from the `genetic-menu` root project directory:
+All commands are run from the `dmg-react` root project directory:
 
 | Command          | Description                                              |
 | ---------------- | -------------------------------------------------------- |

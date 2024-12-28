@@ -6,6 +6,7 @@ import NavBarCenter from '../molecules/nav.bar.center'
 import NavBarEnd from '../molecules/nav.bar.end'
 
 import PowerSwitch from '../atoms/power.switch'
+import RomFileButton from '../atoms/rom.file.button'
 
 export type StandardProps = {
   children?: ReactNode
@@ -19,7 +20,7 @@ const Standard: FC<StandardProps> = ({children}) => (
         navBarCenter={<NavBarCenter />}
         navBarEnd={
           <NavBarEnd>
-            <button className="btn btn-active btn-ghost">Load Game ROM</button>
+            <RomFileButton>Game ROM</RomFileButton>
             &nbsp;&nbsp;&nbsp;
             <PowerSwitch />
           </NavBarEnd>

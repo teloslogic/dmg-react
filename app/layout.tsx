@@ -1,5 +1,7 @@
 import React, {FC, ReactNode} from 'react'
 import type {Metadata} from 'next'
+import {Provider} from 'jotai'
+
 import './input.css'
 
 export const metadata: Metadata = {
@@ -28,7 +30,9 @@ const RootLayout: FC<RootLayoutProps> = ({children}) => (
     <head>
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     </head>
-    <body>{children}</body>
+    <body>
+      <Provider>{children}</Provider>
+    </body>
   </html>
 )
 
