@@ -23,6 +23,7 @@ The libraries and frameworks that make up the tech stack:
 - [Typescript](https://www.typescriptlang.org) - A strongly typed programming language.
 - [Pnpm](https://pnpm.io/) - Fast, disk space efficient package manager.
 - [Next JS](https://nextjs.org/) - React framework for the web.
+- [Jotai](https://jotai.org/) - Global React state management.
 
 ## Project Setup
 The steps for installing the required frameworks, libraries and tools needed to build, test, run, and deploy this project:

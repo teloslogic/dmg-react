@@ -1,6 +1,6 @@
 import React, {FC, ReactNode} from 'react'
 import type {Metadata} from 'next'
-import {Provider} from 'jotai'
+import Providers from '@/components/atoms/providers'
 
 import './input.css'
 
@@ -31,7 +31,7 @@ const RootLayout: FC<RootLayoutProps> = ({children}) => (
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     </head>
     <body>
-      <Provider>{children}</Provider>
+      <Providers>{children}</Providers>
     </body>
   </html>
 )
